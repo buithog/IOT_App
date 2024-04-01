@@ -5,29 +5,58 @@ This is my IOT web application built with HTML, CSS and JavaScript for Front-end
 ## Installation
 
 Download this repo, extract and open it in Intellij. Open the terminal and type:
+install JDK 11 : https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html
+dowload Intellij in  : https://www.jetbrains.com/idea/download/other.html.
+dowload Maven in: https://maven.apache.org/download.cgi
 
 
 After that, it will install all the packages you need to run this application.
 
+## UI web
+  1. Dashboard
+
+  2. Data Sensor page.
+
+  3. History Action
+
+  4. Profile
+
 ## Database Configuration
 
-You need create database called "iot" and 2 tables: "action_history" (id, device_name, status, created_at) and "data_sensor" (id, temperature, humidity, light, created_at).
+You need create database called "iot" and 2 tables: "sensor" (id, date, temp, lux,hum) and "control" (id,date,fan, light).
 
-After that, you must connect your server with database, go into "server.js" file, change your database configuration:
+After that, you must connect your server with database, go into "aplication.properties" file, change your database configuration:
 
+```bash
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/iot
+spring.datasource.username=<<your username>>
+spring.datasource.password=<<your pass_word>>
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+#spring.jpa.show-sql: true
+```
 
 
 ## MQTT Configuration
 
-You also need to config your mqtt client, change your option in mqtt connect function:
+You also need to config MQTTBeans.java client, change your option in mqtt connect fuction:
 
 
+``` java
+    public MqttPahoClientFactory mqttPahoClientFactory(){
+        DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
+        MqttConnectOptions options = new MqttConnectOptions();
+        options.setServerURIs(new String[] {
+                "tcp://localhost:{<<YourPort>>}"
+        });
+        options.setUserName({Your UserName});
+        options.setPassword({YourPassword}.toCharArray());
+        options.setCleanSession(true);
+        factory.setConnectionOptions(options);
+        return factory;
+    }
+```
 
-## Run Front-end side
-
-
-
-## Run Back-end side
 
 
 
@@ -55,4 +84,4 @@ Open file "sketch_feb15a.ino" and change your network id, network password, mqtt
 
 ## API Documentations
 
-[API Docs](https://documenter.getpostman.com/view/24287979/2sA35BbjDb)
+[API Docs](https://documenter.getpostman.com/view/27000972/2sA35HWfbb)
