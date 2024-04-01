@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IoT Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="navbar">
+    <ul class="nav-iteams">
+        <li><a href="/home">Dashbroad</a></li>
+        <li><a href="/historysensor">History sensor</a></li>
+        <li><a href="/historyaction">History action</a></li>
+        <li> <img src="" alt="">
+            <a href="/profile">Profile</a>
+        </li>
+    </ul>
+    <img src="" alt="">
+</div>
+<div class="container">
+    <!-- Temperature, Humidity, Light Widget -->
+    <div class="widget temperature">
+        <h2>Nhiệt độ</h2>
+        <p id="temp_val">25°C</p>
+    </div>
+
+    <div class="widget humidity">
+        <h2>Độ ẩm</h2>
+        <p id="hum_val">50%</p>
+    </div>
+
+    <div class="widget light">
+        <h2>Ánh sáng</h2>
+        <p id="lux_val">500 Lux</p>
+    </div>
+
+    <!-- Chart Widget -->
+    <div class="widget chart">
+        <h2>Biểu đồ</h2>
+        <div class="chart-container">
+            <canvas id="myChart" style="width:100%;max-width:600px;"></canvas>
+        </div>
+    </div>
+
+    <!-- Button Widget -->
+    <div class="widget">
+        <h2>Điều khiển</h2>
+        <div class="widget-container">
+            <img class="icon img_lightoff" id="lightoff" src="/lightbulb.png" alt="light" >
+            <img class="icon img_lighton" id="lighton" src="/lightbulb_on.png" alt="light">
+            <div class="toggle btn_light">
+                <label class="switch-light">
+                    <input type="checkbox" id="toggleButton_light"  >
+                    <span class="slider"></span>
+                </label>
+                <p id="statusLight">Off</p>
+            </div>
+        </div>
+        <div class="widget-container">
+            <img class="icon img_fanoff" id = 'iconfanoff' src="/extractor.png" alt="fan">
+            <img class="icon img_fanon" id = 'iconfanon' src="/extractor.png" alt="fan">
+            <div class="toggle btn_fan">
+                <label class="switch-fan">
+                    <input type="checkbox" id="toggleButton_fan" >
+                    <span class="slider"></span>
+                </label>
+                <p id="statusFan">Off</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="/js/script.js"></script>
+</body>
+</html>

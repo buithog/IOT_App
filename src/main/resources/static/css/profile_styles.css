@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+/* body{
+    overflow-x: hidden;
+} */
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+:root{
+    --primaryfont: 'sans-serif', sans-serif;
+    --secondaryfont:'PT Sans', sans-serif;
+    --primarycolor:#353535;
+    --secondarycolor:#7A7A7A;
+    --primarygradient: linear-gradient(95.13deg, #FFCC00 -21.46%, #FFF5CB 112.13%);;
+
+}
+.container{
+    width: 1110px;
+    margin: auto;
+}
+.row{
+    display:flex;
+    margin-left: 40px;
+}
+
+/* header starts here */
+
+.nav-iteams{
+    font-size: large;
+    display: flex;
+    justify-content: space-around;
+    height: 80px;
+    align-items: center;
+    background-color: #9FE2BF;
+    margin: 0;
+
+}
+
+li{
+    list-style: none;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+a:hover{
+    color: #e77d0d;
+}
+/* header ends here */
+
+
+/* banner starts hrer */
+#banner{
+    margin-top:58px;
+}
+#banner .banner-text{
+    width: 50%;
+    margin-top:70px;
+}
+#banner .banner-img{
+    width: 50%;
+
+}
+#banner .banner-text span h5{
+    font-family:var(--primaryfont);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color:var(--primarycolor);
+    display: inline-block;
+    margin-right: 15px;
+
+}
+#banner .banner-text span img{
+    margin-bottom: -7px;
+}
+#banner .banner-text h1{
+    font-family: var(--secondaryfont);
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 83px;
+    color: #353535;
+    margin-top: 25px;
+
+}
+#banner .banner-text p{
+    font-family:var(--primaryfont);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 180%;
+    color: #353535;
+    margin-top: 25px;
+}
+#banner .banner-text .button a{
+    width: 209px;
+    height: 69px;
+    border: 1px solid #000000;
+    text-align: center;
+    line-height:65px ;
+    border-radius: 20px;
+    margin: 50px 40px 83px 0px ;
+
+    font-family:var(--primaryfont);
+    font-weight: 500;
+    font-size: 20px;
+    color:var(--primarycolor);
+    transition: 0.4s;
+    margin-bottom: 67px;
+}
+#banner .banner-text .button a:hover{
+    background: #FFCC00;
+    color: #FFFFFF;
+    border: none;
+}
+#banner .banner-text .cont-icon h4{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 180%;
+    color: #353535;
+}
+#banner .banner-text .cont-icon ul li {
+    width: 40px;
+    height: 40px;
+    background: #F4F3F3;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    margin-left: 16px;
+}
+#banner .banner-text .cont-icon ul li a{
+    position: absolute;
+    left:25%;
+    top: 25%;
+}
+#banner .mous-btn{
+    margin: 0 45%;
+}
+.hello-text{
+    background: linear-gradient(84deg, #9845E8 0%, #33D2FF 54.95%, #DD5789 100%);
+    /*background-clip: ;*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* banner ends hrer */
+/* about starts hrer */
+#about{
+    margin-top: 100px;
+    background: linear-gradient(95.13deg, #FFCC00 -21.46%, #FFF5CB 112.13%);
+}
+#about .container .row .about-pic{
+    width: 50%;
+    margin-top: 28px;
+    margin-right: auto;
+    max-width: fit-content;
+    max-height: fit-content;
+}
+#about .container .row .about-text{
+    width: 50%;
+    position: relative;
+}
+#about .about-text h1{
+    font-family:var(--secondaryfont);
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 65px;
+    color: var(--primarycolor);
+    margin-top: 75px;
+    margin-bottom: 40px;
+}
+#about .about-text p{
+    font-family:var(--primaryfont);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 190%;
+    color:var(--primarycolor);
+    margin-bottom: 50px;
+}
+#about .about-text a{
+    width: 171px;
+    height: 66px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    font-family:var(--primaryfont);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 66px;
+    color: #353535;
+    display: inline-block;
+    text-align: center;
+
+
+}
+#about .about-text img{
+    position: absolute;
+    left:450px ;
+    bottom: 0;
+
+}
+
+/* about ends hrer */
+/* card starts here  */
+#card{
+    margin-top: 150px;
+}
+#card .row{
+    gap: 32px;
+}
+#card .box{
+    width: 350px;
+    height: 367px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    width: calc((100% - 64px)/3);
+    padding: 41px;
+    text-align: center;
+
+}
+#card .box img{
+    width: 78px;
+    height: 79px;
+}
+#card .box h5{
+    font-family: var(--primaryfont);
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 180%;
+    text-align: center;
+    color: var(--primarycolor);
+    margin-top: 18px;
+
+}
+#card .box p{
+    font-family: var(--primaryfont);;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 190%;
+    text-align: center;
+    color: #7A7A7A;
+    margin-top: 10px;
+}
+/* card ends here  */
+/* branding starts here  */
+#branding .container{
+    background: linear-gradient(95.13deg, #FFCC00 -21.46%, #FFF5CB 112.13%);
+    border-radius: 30px;
+    margin-top: 150px;
+}
+#branding .branding-img{
+    width: 50%;
+}
+#branding .branding-cnt{
+    width: 50%;
+    padding-top: 84px;
+    position: relative;
+}
+#branding .branding-cnt h1{
+    font-family:var(--secondaryfont);
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 57px;
+    color: var(--primarycolor);
+    margin-bottom: 32px;
+
+}
+#branding .branding-cnt p{
+    font-family:var(--primaryfont);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 190%;
+    color: var(--primarycolor);
+    margin-bottom: 35px;
+}
+#branding .branding-cnt a{
+    width: 171px;
+    height: 66px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    font-family:var(--primaryfont);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 66px;
+    color: #353535;
+    display: inline-block;
+    text-align: center;
+}
+#branding .branding-cnt .border{
+    position: absolute;
+    top:65%;
+    left: 40%;
+}
+/* branding ends here  */
