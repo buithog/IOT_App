@@ -21,30 +21,14 @@ After that, you must connect your server with database, go into "server.js" file
 
 You also need to config your mqtt client, change your option in mqtt connect function:
 
-```JavaScript
-const client = mqtt.connect("mqtt://<your mqtt host>:<your mqtt port number>/", {
-  username: "<your mqtt username>",
-  password: "<your mqtt password>",
-});
-```
+
 
 ## Run Front-end side
-
-Open folder in Visual Studio Code and open index.html file. Right click and open with Live Server. After running that, you will get this interface:
-![image](https://github.com/KiritoSAO148/IoT/assets/118887671/143b8a5b-58eb-4d1b-81f8-799799d695e1)
-![image](https://github.com/KiritoSAO148/IoT/assets/118887671/9ad13973-3bcb-4ad9-9271-e0e7d19d473b)
-![image](https://github.com/KiritoSAO148/IoT/assets/118887671/b04b72e9-3d74-47f3-a243-feb06138894b)
-![image](https://github.com/KiritoSAO148/IoT/assets/118887671/7d8c2893-dfc7-483b-8d5c-8678758f722c)
 
 
 
 ## Run Back-end side
-Go into "server.js" file and open the terminal, type:
-```bash
-npm start
-```
-Aftrt that, you will get:
-![image](https://github.com/KiritoSAO148/IoT/assets/118887671/2ca70831-125b-473f-990f-2d03993ee364)
+
 
 
 ## Install Arduino
