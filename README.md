@@ -14,12 +14,16 @@ After that, it will install all the packages you need to run this application.
 
 ## UI web
   1. Dashboard
+![image](https://github.com/buithog/IOT_App/assets/100995556/3de87741-c123-4a01-9102-119b3ea69fb4)
 
   2. Data Sensor page.
+![image](https://github.com/buithog/IOT_App/assets/100995556/453dd94a-6db8-46c2-94f5-44d044be307d)
 
   3. History Action
+![image](https://github.com/buithog/IOT_App/assets/100995556/291db0e3-dc6a-4e71-bb1f-1c60d3806139)
 
   4. Profile
+![image](https://github.com/buithog/IOT_App/assets/100995556/7e76e015-5e25-49bc-b8e0-c381ad28650c)
 
 ## Database Configuration
 
