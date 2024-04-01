@@ -4,13 +4,16 @@ This is my IOT web application built with HTML, CSS and JavaScript for Front-end
 
 ## Installation
 
-Download this repo, extract and open it in Intellij. Open the terminal and type:
-install JDK 11 : https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html
-dowload Intellij in  : https://www.jetbrains.com/idea/download/other.html.
-dowload Maven in: https://maven.apache.org/download.cgi
+Download this repo, extract and open it in Intellij :
+Install JDK 11 : https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html.
 
+Dowload Intellij in  : https://www.jetbrains.com/idea/download/other.html.
 
-After that, it will install all the packages you need to run this application.
+Dowload Maven in: https://maven.apache.org/download.cgi.
+
+Dowload Mysql: https://dev.mysql.com/downloads/installer/.
+
+After that, it will install all the packages you need to open this application in IDE.
 
 ## UI web
   1. Dashboard
