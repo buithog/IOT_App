@@ -17,5 +17,7 @@ public interface ControlDao extends JpaRepository<Control,Long> {
 
     @Query("SELECT c FROM Control c WHERE CAST(c.date AS string) LIKE %:keyword% ")
     Page<Control> searchControlByDate(@Param("keyword") String keyword, Pageable pageable);
+    @Query("SELECT COUNT(s) FROM Sensor s")
+    Long countAllControls();
 
 }

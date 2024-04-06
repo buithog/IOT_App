@@ -23,9 +23,6 @@ public class Controller {
     AppService appService;
     @Autowired
     MqttBean mqttBean;
-    private String latestMessage = null;
-    private final Object lock = new Object();
-    private boolean messageReceived = false;
 
     @PostMapping("/control")
     public ResponseEntity<?> publish(@RequestBody String mqttMessage){
@@ -33,8 +30,10 @@ public class Controller {
             JsonObject convertedJson = new Gson().fromJson(mqttMessage, JsonObject.class);
             mqttGateway.sendToMqtt(convertedJson.get("message").toString(), convertedJson.get("topic").toString().substring(1,8));
             System.out.println(convertedJson.toString());
+            System.out.println(convertedJson.get("message").toString());
             CompletableFuture<Object> respondControlMessage = mqttBean.getRespondControlMessage();
             Object result = respondControlMessage.get(); // Đợi tin nhắn từ topic "respondcontrol"
+            appService.saveDataControl(convertedJson.get("message").toString());
             mqttBean.setRespondControlMessage(new CompletableFuture<>());
             return ResponseEntity.ok().body(result);
 
@@ -70,6 +69,13 @@ public class Controller {
     public ResponseEntity<Long> getAllCountSensor(){
         return ResponseEntity.ok(appService.getTotalSensorCount());
     }
+
+    @CrossOrigin
+    @GetMapping("/getCountControls")
+    public ResponseEntity<Long> getAllCountControls(){
+        return ResponseEntity.ok(appService.getTotalControlsCount());
+    }
+
     @CrossOrigin
     @GetMapping("/getdatasensor")
     public ResponseEntity<List<Sensor>> getByPageSensor(

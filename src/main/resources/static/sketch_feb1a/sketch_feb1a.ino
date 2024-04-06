@@ -14,9 +14,9 @@ const int photoresistorPin = 34;
 const int led1Pin = 2;
 const int led2Pin = 4;
 
-const char* ssid = "FPT Free Wifi";
-const char* password = "yeumixoan";
-const char* mqtt_server = "192.168.7.185";
+const char* ssid = "TP-LINK_2DB6";
+const char* password = "987654321";
+const char* mqtt_server = "192.188.12.104";
 const char* mqtt_username = "thong";
 const char* mqtt_password = "thong1462002";
 

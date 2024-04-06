@@ -32,9 +32,8 @@ public class AppService {
         sensorDao.save(sensor);
     }
     public void saveDataControl(String data){
-        JsonObject controlJson = new Gson().fromJson(data,JsonObject.class);
-        int fan = controlJson.get("light").getAsInt();
-        int light = controlJson.get("fan").getAsInt();
+        int fan = Integer.valueOf(data.charAt(0));
+        int light = Integer.valueOf(data.charAt(1));
         Control control = new Control(fan,light);
         controlDao.save(control);
     }
@@ -83,4 +82,7 @@ public class AppService {
         return sensorDao.countAllSensors();
     }
 
+    public Long getTotalControlsCount() {
+        return controlDao.countAllControls();
+    }
 }

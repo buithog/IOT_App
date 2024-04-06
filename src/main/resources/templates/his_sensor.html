@@ -7,54 +7,57 @@
     <link rel="stylesheet" href="css/his_sensor_styles.css">
 </head>
 <body>
-<div class="navbar">
-    <ul class="nav-iteams">
-        <li><a href="/home">Dashbroad</a></li>
-        <li><a href="/historysensor">History sensor</a></li>
-        <li><a href="/historyaction">History action</a></li>
-        <li> <img src="" alt="">
-            <a href="/profile">Profile</a>
-        </li>
-    </ul>
-    <img src="" alt="">
-</div>
-<div class="container">
+    <div class="content-background">
+        <div class="navbar">
+            <ul class="nav-iteams">
+                <li><a href="/home">Dashbroad</a></li>
+                <li><a href="/historysensor">History sensor</a></li>
+                <li><a href="/historyaction">History action</a></li>
+                <li class="avatarContrainer">
+                    <a href="/profile">Profile</a>
+                    <img class="avatar" src="/anh1.png" alt="avtar">
+                </li>
+            </ul>
+            <img src="" alt="">
+        </div>
+        <div class="container">
 
-    <h2>Dữ liệu cảm biến</h2>
-    <input type="text" id="myInput"  placeholder="Search for names.." title="Type in a name">
-    <div class="search-bar">
-        <label for="searchCategory">Tìm kiếm với:</label>
-        <select id="searchCategory">
-            <option value="id">ID</option>
-            <option value="date">Thời gian</option>
-            <option value="temp">Nhiệt độ</option>
-            <option value="hum">Độ ẩm</option>
-            <option value="lux">Ánh sáng</option>
-        </select>
+            <h2>Dữ liệu cảm biến</h2>
+            <input type="text" id="myInput"  placeholder="Search for names.." title="Type in a name">
+            <div class="search-bar">
+                <label for="searchCategory">Tìm kiếm với:</label>
+                <select id="searchCategory">
+                    <option value="id">ID</option>
+                    <option value="date">Thời gian</option>
+                    <option value="temp">Nhiệt độ</option>
+                    <option value="hum">Độ ẩm</option>
+                    <option value="lux">Ánh sáng</option>
+                </select>
+            </div>
+            <table id="sensorTable">
+                <thead>
+                <tr>
+                    <th data-sortby="id">ID</th>
+                    <th data-sortby="date">Thời gian</th>
+                    <th data-sortby="temp">Nhiệt độ</th>
+                    <th data-sortby="hum">Độ ẩm</th>
+                    <th data-sortby="lux">Ánh sáng</th>
+                </tr>
+                </thead>
+                <tbody id="sensorTableBody"></tbody>
+            </table>
+            <div class="pagination">
+                <a href="#" id="prevPage">&laquo;</a>
+                <a href="#" class="pageNumber">1</a>
+                <a href="#" class="pageNumber">2</a>
+                <a href="#" class="pageNumber">3</a>
+                <a href="#" class="pageNumber">4</a>
+                <a href="#" class="pageNumber">5</a>
+                <a href="#" class="pageNumber">6</a>
+                <a href="#" id="nextPage">&raquo;</a>
+            </div>
+        </div>
     </div>
-    <table id="sensorTable">
-        <thead>
-        <tr>
-            <th data-sortby="id">ID</th>
-            <th data-sortby="date">Thời gian</th>
-            <th data-sortby="temp">Nhiệt độ</th>
-            <th data-sortby="hum">Độ ẩm</th>
-            <th data-sortby="lux">Ánh sáng</th>
-        </tr>
-        </thead>
-        <tbody id="sensorTableBody"></tbody>
-    </table>
-    <div class="pagination">
-        <a href="#" id="prevPage">&laquo;</a>
-        <a href="#" class="pageNumber">1</a>
-        <a href="#" class="pageNumber">2</a>
-        <a href="#" class="pageNumber">3</a>
-        <a href="#" class="pageNumber">4</a>
-        <a href="#" class="pageNumber">5</a>
-        <a href="#" class="pageNumber">6</a>
-        <a href="#" id="nextPage">&raquo;</a>
-    </div>
-</div>
 <script src="/js/sensor_script.js"></script>
 </body>
 </html>

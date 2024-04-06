@@ -73,20 +73,7 @@ function toggleButtonFanAction() {
 
 toggleButtonFan.addEventListener('click',toggleButtonFanAction);
 
-window.addEventListener('load', function() {
-    const lightStatus = localStorage.getItem('lightStatus');
-    if (lightStatus !== null) {
-        toggleButtonLight.checked = (lightStatus === 'true');
-    }
 
-    const fanStatus = localStorage.getItem('fanStatus');
-    if (fanStatus !== null) {
-        toggleButtonFan.checked = (fanStatus === 'true');
-    }
-    toggleButtonFanUpdate();
-    toggleButtonLightUpdate();
-    sendControl(buildObjectControl());
-});
 
 
 function buildObjectControl(){
@@ -182,7 +169,6 @@ let cc = new Chart("myChart", {
                 position: 'left',
                 scaleLabel: {
                     display: true,
-                    labelString: 'Temperature (°C)'
                 }
             },
             y1: {
@@ -191,7 +177,6 @@ let cc = new Chart("myChart", {
                 position: 'right',
                 scaleLabel: {
                     display: true,
-                    labelString: 'Humidity (%)'
                 },
                 // grid line settings
                 grid: {
@@ -206,6 +191,17 @@ let cc = new Chart("myChart", {
 function loopdata(){
     getlatestsensor();
 
+    let temp = Number(datatemp[datatemp.length - 1 ]);
+    let hum = Number(datahum[datahum.length - 1 ]);
+    let lux = Number(datalux[datalux.length - 1 ]);
+    temp_val.textContent = temp + '°C';
+    hum_val.textContent = hum + '%';
+    lux_val.textContent = lux + ' Lux';
+
+    setColor(1,temp);
+    setColor(2,hum);
+    setColor(3,lux);
+
     if(datatemp.length > 10){
         datatemp.shift();
     }
@@ -219,30 +215,94 @@ function loopdata(){
         datatime.shift();
     }
 
-    let temp = Number(datatemp[datatemp.length - 1 ]);
-    let hum = Number(datahum[datahum.length - 1 ]);
-    let lux = Number(datalux[datalux.length - 1 ]);
-    temp_val.textContent = temp + '°C';
-    hum_val.textContent = hum + '%';
-    lux_val.textContent = lux + ' Lux';
-
-    setColor(1,temp);
-    setColor(2,hum);
-    setColor(3,lux);
     cc.update();
 }
 
+/// Xu ly hinh anh
+
+// Chọn tất cả các ảnh trong thẻ có lớp widget temperature
+const tempImages = document.querySelectorAll('.widget.temperature img');
+
+// Chọn tất cả các ảnh trong thẻ có lớp widget humidity
+const humImages = document.querySelectorAll('.widget.humidity img');
+
+// Chọn tất cả các ảnh trong thẻ có lớp widget light
+const luxImages = document.querySelectorAll('.widget.light img');
+
+
 function setColor(id , value){
     if(id === 1){
-        temp.style.background = `linear-gradient(180deg, #db5334 ${value /2 }%, #8B0000 ${(100 -value)/2 +50}% )`
+
+        if(value <= 16){
+            temp.style.background = `linear-gradient(180deg, #CDFADB 10%, #FFCF96 80% )`
+            tempImages[0].style.opacity = 1;
+            tempImages[0].style.transform = 'translateY(0%)'; // Ẩn ảnh cũ
+            tempImages[1].style.opacity = 0;
+            tempImages[1].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+            tempImages[2].style.opacity = 0;
+            tempImages[2].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+        }else if(value>= 16 && value <=30){
+            temp.style.background = `linear-gradient(180deg ,#F6FDC3 10%, #FF8080 80%)`
+            tempImages[0].style.opacity = 0;
+            tempImages[0].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+            tempImages[1].style.opacity = 1;
+            tempImages[1].style.transform = 'translateY(0%)'; // Ẩn ảnh cũ
+            tempImages[2].style.opacity = 0;
+            tempImages[2].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+        }else{
+            temp.style.background = `linear-gradient(180deg , #FFCF96 10%, #FF8080 80%)`
+            tempImages[0].style.opacity = 0;
+            tempImages[0].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+            tempImages[1].style.opacity = 0;
+            tempImages[1].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+            tempImages[2].style.opacity = 1;
+            tempImages[2].style.transform = 'translateY(0%)'; // Ẩn ảnh cũ
+        }
     }
-    if(id === 2){
-        hum.style.background = `linear-gradient(180deg,#2874A6 ${value / 2}%,  #1B4F72 ${(100 -value)/2 +50}% )`
+    else if(id === 2){
+        if(value <= 70){
+            hum.style.background = `linear-gradient(180deg, #8db5c7 20%, #2d99ae 60% )`
+            humImages[0].style.opacity = 1;
+            humImages[0].style.transform = 'translateY(0%)'; // Ẩn ảnh cũ
+            humImages[1].style.opacity = 0;
+            humImages[1].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+        }else{
+            hum.style.background = `linear-gradient(180deg , #2d99ae 10%, #0c5776 80%)`
+            humImages[0].style.opacity = 0;
+            humImages[0].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+            humImages[1].style.opacity = 1;
+            humImages[1].style.transform = 'translateY(0%)'; // Ẩn ảnh cũ
+        }
     }
-    if(id === 3){
-        lux.style.background =  `linear-gradient(180deg,#F4D03F  ${value / 2 - 50 }%, #B7950B ${(value)/2 +50}% )`
+    else{
+        if(value <= 300){
+            lux.style.background = `linear-gradient(180deg, #593e67 10%, #84495f 60% )`
+            luxImages[0].style.opacity = 0;
+            luxImages[0].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+            luxImages[1].style.opacity = 0;
+            luxImages[1].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+            luxImages[2].style.opacity = 1;
+            luxImages[2].style.transform = 'translateY(0%)'; // Ẩn ảnh cũ
+        }else if(value >= 300 && value <= 2000){
+            lux.style.background = `linear-gradient(180deg , #fea837 10%, #ffcb77 60%)`
+            luxImages[0].style.opacity = 1;
+            luxImages[0].style.transform = 'translateY(0%)'; // Ẩn ảnh cũ
+            luxImages[1].style.opacity = 1;
+            luxImages[1].style.transform = 'translateY(0%)'; // Ẩn ảnh cũ
+            luxImages[2].style.opacity = 0;
+            luxImages[2].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+        }else{
+            lux.style.background = `linear-gradient(180deg , #fea837 10%, #de741c 60%)`
+            luxImages[0].style.opacity = 1;
+            luxImages[0].style.transform = 'translateY(0%)'; // Ẩn ảnh cũ
+            luxImages[1].style.opacity = 0;
+            luxImages[1].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+            luxImages[2].style.opacity = 0;
+            luxImages[2].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
+        }
     }
 }
+
 
 const get10latestsensor = async() => {
     let response = await fetch('http://localhost:8080/api/v1/get10latestsensor');
@@ -298,3 +358,17 @@ const getlatestsensor = async() => {
 
 window.setInterval(loopdata , 5000);
 window.addEventListener('load',get10latestsensor);
+window.addEventListener('load', function() {
+    const lightStatus = localStorage.getItem('lightStatus');
+    if (lightStatus !== null) {
+        toggleButtonLight.checked = (lightStatus === 'true');
+    }
+
+    const fanStatus = localStorage.getItem('fanStatus');
+    if (fanStatus !== null) {
+        toggleButtonFan.checked = (fanStatus === 'true');
+    }
+    toggleButtonFanUpdate();
+    toggleButtonLightUpdate();
+    // sendControl(buildObjectControl());
+});

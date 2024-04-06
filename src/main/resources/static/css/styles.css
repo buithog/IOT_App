@@ -4,6 +4,13 @@ body {
     padding: 0;
     background-color: #f4f4f4;
 }
+.content-background{
+    background-image: url('/645.png');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
 
 .container {
     display: flex;
@@ -41,19 +48,75 @@ button {
     color: #fff;
 }
 .temperature {
-    background-color: #db5334;
-    background: linear-gradient(45deg, #8B0000 0%, #db5334 35%, #F1948A  100%);
+    background-color: red;
+    position: relative;
 }
 
 .humidity {
     background-color: #3498db;
     /* background: linear-gradient(45deg,#1B4F72 0%, #2874A6  35%,#5DADE2  100%); */
+    position: relative;
 }
 
 .light {
     background-color: #ffee01;
     /* background: linear-gradient(45deg, #B7950B 0%, #F4D03F 35%,#FEF9E7  100%); */
+    /* display: flex;
+    justify-content: space-around; */
+    position: relative;
 }
+
+
+.hum_l1,.hum_l2,.temp_l1,.temp_l2,.temp_l3,.luxl1,.luxl2,.luxl3 {
+    transition: opacity 1s, transform 1s;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+}
+.hum_l1,.hum_l2,.temp_l1,.temp_l2,.temp_l3,.luxl2 {
+    transition: opacity 1s, transform 1s;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    animation: shake 15s ease-in-out infinite;
+}
+.hum_l2,.temp_l2,.temp_l3,.luxl2,.luxl3 {
+    opacity: 0; /* Ẩn ảnh mới ban đầu */
+    transform: translateY(-100%);
+
+}
+@keyframes shake {
+    0%, 100% { transform: scale(1); opacity: 1; } /* Góc ban đầu và kết thúc */
+    10%, 30%, 50%, 70%, 90% { transform: scale(1.05); opacity: 0.8; } /* Phóng to nhỏ và làm mờ */
+    20%, 40%, 60%, 80% { transform: scale(0.95); opacity: 0.8; } /* Phóng to nhỏ và làm mờ */
+}
+
+.widget.temperature img{
+    position: absolute; /* Thiết lập ảnh là absolute */
+    width: 100px;
+    height: 100px;
+    top: 15%; /* Đặt ảnh ở giữa theo chiều dọc */
+    right: 10%; /* Đặt ảnh ở phía bên phải và 2/3 chiều rộng của widget container */
+    /* transform: translate(0, -50%); */
+}
+/* CSS for humidity widget */
+.widget.humidity img{
+    position: absolute; /* Thiết lập ảnh là absolute */
+    top: 15%; /* Đặt ảnh ở giữa theo chiều dọc */
+    right: 10%; /* Đặt ảnh ở phía bên phải và 2/3 chiều rộng của widget container */
+    /* transform: translate(0, -50%);  */
+    width: 100px;
+    height: 100px;
+}
+/* CSS for light widget */
+.widget.light img{
+    position: absolute; /* Thiết lập ảnh là absolute */
+    top: 0; /* Đặt ảnh ở phía trên */
+    right: 0; /* Đặt ảnh ở phía bên phải */
+    width: 100px;
+    height: 100px;
+}
+
+
+
+
+
 /* Toggle button styles */
 .toggle {
     display: flex;
@@ -169,7 +232,7 @@ input:checked + .slider:before {
     justify-content: space-around;
     height: 80px;
     align-items: center;
-    background-color: #9FE2BF;
+    background-color: #B3C8CF;
     margin: 0;
 
 }
@@ -184,4 +247,18 @@ a{
 }
 a:hover{
     color: #e77d0d;
+}
+.avatarContrainer{
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+.avatar {
+    border-radius: 50%; /* Biến ảnh thành hình tròn */
+    width: 50px; /* Độ rộng của hình ảnh */
+    height: 50px; /* Độ cao của hình ảnh */
+    background: #2196F3;
+    margin-left: 10px; /* Khoảng cách giữa chữ và ảnh */
+}
+.avatarContainer a {
+    margin-left: 10px; /* Khoảng cách giữa chữ và ảnh */
 }

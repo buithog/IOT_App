@@ -5,8 +5,13 @@ body {
     background-color: #f4f4f4;
 }
 
-
-
+.content-background{
+    background-image: url('/645.png');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+}
 
 .nav-iteams{
     font-size: large;
@@ -14,11 +19,15 @@ body {
     justify-content: space-around;
     height: 80px;
     align-items: center;
-    background-color: #9FE2BF;
+    background-color: #B3C8CF;
     margin: 0;
 
 }
-
+.navbar{
+    position: fixed;
+    top: 0%;
+    width: 100%;
+}
 li{
     list-style: none;
     cursor: pointer;
@@ -32,6 +41,7 @@ a:hover{
 }
 
 h2{
+    padding-top: 80px;
     text-align: center;
 }
 table {
@@ -82,4 +92,39 @@ th {
     float: left;
     padding: 8px 16px;
     text-decoration: none;
+}
+.pagination {
+    display: inline-block;
+    margin-left: 65%;
+    margin-top: 20px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a:hover {
+    color: blue; /* Màu khi hover */
+}
+
+.pagination a.active {
+    color: red; /* Màu khi được chọn */
+    font-weight: bold;
+}
+.avatarContrainer{
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+.avatar {
+    border-radius: 50%; /* Biến ảnh thành hình tròn */
+    width: 50px; /* Độ rộng của hình ảnh */
+    height: 50px; /* Độ cao của hình ảnh */
+    background: #2196F3;
+    margin-left: 10px; /* Khoảng cách giữa chữ và ảnh */
+}
+.avatarContainer a {
+    margin-left: 10px; /* Khoảng cách giữa chữ và ảnh */
 }

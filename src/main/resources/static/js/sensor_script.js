@@ -155,7 +155,7 @@ function formatDate(datestr) {
     const day = date.getDate();
     const month = date.getMonth() + 1; // Tháng bắt đầu từ 0 nên cần cộng thêm 1
     const year = date.getFullYear();
-    const datefm = seconds + ':' + minutes + ':' + hours + ' - ' + day + '/' + month + '/' + year;
+    const datefm =   year + '-' + month + '-' + day + ' ' +seconds + ':' + minutes + ':' + hours;
     return datefm;
     }
 function filldata(pagenum,sortBy,sortDirection){
