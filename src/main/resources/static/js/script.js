@@ -283,7 +283,7 @@ function setColor(id , value){
             luxImages[1].style.transform = 'translateY(-100%)'; // Ẩn ảnh cũ
             luxImages[2].style.opacity = 1;
             luxImages[2].style.transform = 'translateY(0%)'; // Ẩn ảnh cũ
-        }else if(value >= 300 && value <= 2000){
+        }else if(value > 300 && value <= 2000){
             lux.style.background = `linear-gradient(180deg , #fea837 10%, #ffcb77 60%)`
             luxImages[0].style.opacity = 1;
             luxImages[0].style.transform = 'translateY(0%)'; // Ẩn ảnh cũ

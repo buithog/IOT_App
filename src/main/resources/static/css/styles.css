@@ -71,15 +71,12 @@ button {
     transition: opacity 1s, transform 1s;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
 }
-.hum_l1,.hum_l2,.temp_l1,.temp_l2,.temp_l3,.luxl2 {
-    transition: opacity 1s, transform 1s;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+.hum_l1,.hum_l2,.temp_l1,.temp_l2,.temp_l3 {
     animation: shake 15s ease-in-out infinite;
 }
 .hum_l2,.temp_l2,.temp_l3,.luxl2,.luxl3 {
     opacity: 0; /* Ẩn ảnh mới ban đầu */
     transform: translateY(-100%);
-
 }
 @keyframes shake {
     0%, 100% { transform: scale(1); opacity: 1; } /* Góc ban đầu và kết thúc */
